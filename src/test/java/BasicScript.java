@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
@@ -13,19 +14,22 @@ import org.openqa.selenium.support.ui.Select;
 
 public class BasicScript {
     private static WebDriver driver;
-    private static String baseUrl;
+    private String baseUrl;
 
 
     @BeforeClass
     public static void setUp() throws Exception {
         driver = new ChromeDriver();
-        baseUrl = "file:///D:/work/GlobalLogic/Trainings/BootCamp/code/calc.html";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
+    @Before
+    public void setURL() {
+        baseUrl = getAppPath();
+    }
+
     @Test
-    public void testAdd()
-    {
+    public void testAdd() {
         driver.get(baseUrl);
         driver.findElement(By.xpath("//input[@value='2']")).click();
         driver.findElement(By.xpath("//input[@value='+']")).click();
@@ -35,8 +39,7 @@ public class BasicScript {
     }
 
     @Test
-    public void testSubstract()
-    {
+    public void testSubstract() {
         driver.get(baseUrl);
         driver.findElement(By.xpath("//input[@value='2']")).click();
         driver.findElement(By.xpath("//input[@value='-']")).click();
@@ -46,8 +49,7 @@ public class BasicScript {
     }
 
     @Test
-    public void testMultiply()
-    {
+    public void testMultiply() {
         driver.get(baseUrl);
         driver.findElement(By.xpath("//input[@value='4']")).click();
         driver.findElement(By.xpath("//input[@value='x']")).click();
@@ -57,8 +59,7 @@ public class BasicScript {
     }
 
     @Test
-    public void testDiv()
-    {
+    public void testDiv() {
         driver.get(baseUrl);
         driver.findElement(By.xpath("//input[@value='4']")).click();
         driver.findElement(By.xpath("//input[@value='/']")).click();
@@ -70,7 +71,14 @@ public class BasicScript {
     @AfterClass
     public static void tearDown() throws Exception {
         driver.quit();
-     }
+    }
+
+
+    private final String getAppPath() {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("calc.html").getFile());
+        return file.getAbsolutePath();
+    }
 
 
 }
