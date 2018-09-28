@@ -1,6 +1,8 @@
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 
 import static org.junit.Assert.*;
@@ -17,6 +19,7 @@ public class BasicScript {
 
     @BeforeClass
     public static void setUp() throws Exception {
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
@@ -33,7 +36,7 @@ public class BasicScript {
         driver.findElement(By.xpath("//input[@value='+']")).click();
         driver.findElement(By.xpath("//input[@value='2']")).click();
         driver.findElement(By.xpath("//input[@value='=']")).click();
-        assertEquals("4", driver.findElement(By.id("resultsbox")).getAttribute("value"));
+        assertEquals("6", driver.findElement(By.id("resultsbox")).getAttribute("value"));
     }
 
     @Test
