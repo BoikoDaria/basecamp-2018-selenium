@@ -27,6 +27,7 @@ public class BasicScript {
     @Before
     public void setURL() {
         baseUrl = getAppPath();
+        System.out.println(baseUrl);
     }
 
     @Test
@@ -36,7 +37,7 @@ public class BasicScript {
         driver.findElement(By.xpath("//input[@value='+']")).click();
         driver.findElement(By.xpath("//input[@value='2']")).click();
         driver.findElement(By.xpath("//input[@value='=']")).click();
-        assertEquals("6", driver.findElement(By.id("resultsbox")).getAttribute("value"));
+        assertEquals("4", driver.findElement(By.id("resultsbox")).getAttribute("value"));
     }
 
     @Test
