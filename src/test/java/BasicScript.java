@@ -26,7 +26,7 @@ public class BasicScript {
 
     @Before
     public void setURL() {
-        baseUrl = getAppPath();
+        baseUrl = "file://" + getAppPath();
         System.out.println(baseUrl);
     }
 
