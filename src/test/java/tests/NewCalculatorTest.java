@@ -32,8 +32,6 @@ public class NewCalculatorTest extends BaseTest {
         calc.click_plus();
         calc.click_5();
         calc.click_equal();
-        calc.click_0();
-        calc.click_5();
         Assert.assertEquals("7", calc.getResult());
     }
 
@@ -56,15 +54,13 @@ public class NewCalculatorTest extends BaseTest {
         calc.click(Keys.MULTIPLY);
         calc.click(Keys.SEVEN);
         calc.click(Keys.EQUAL);
-        calc.click(Keys.DOT);
-
-        Assert.assertEquals("10", calc.getResult());
+         Assert.assertEquals("14", calc.getResult());
     }
 
     @Test
     @Stories("Calculate general story")
     @Features("Calculator functions")
     public void divide_test() {
-        Assert.assertEquals("100", cal.calculate("11111-1111"));
+        Assert.assertEquals("100", cal.calculate("100*1"));
     }
 }

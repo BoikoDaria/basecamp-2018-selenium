@@ -29,10 +29,6 @@ public class BasicScript {
     public void testAdd() {
         driver.get(baseUrl);
         driver.findElement(By.name("2")).click();
-        driver.findElement(By.name("2")).click();
-        driver.findElement(By.name("7")).click();
-        driver.findElement(By.name("7")).click();
-        driver.findElement(By.name("5")).click();
         driver.findElement(By.name("+")).click();
         driver.findElement(By.name("2")).click();
         driver.findElement(By.name("=")).click();
