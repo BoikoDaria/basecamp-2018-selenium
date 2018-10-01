@@ -25,6 +25,8 @@ public class NewCalculatorTest extends BaseTest {
     }
 
     @Test
+    @Stories("Add values story")
+    @Features("Calculator functions")
     public void add_test() {
         calc.click_2();
         calc.click_plus();
@@ -36,8 +38,8 @@ public class NewCalculatorTest extends BaseTest {
     }
 
     @Test
-    //@Stories("Substract values story")
-    //@Features("Calculator functions")
+    @Stories("Substract values story")
+    @Features("Calculator functions")
     public void subtract_test() {
         calc.click("2");
         calc.click("-");
@@ -47,6 +49,8 @@ public class NewCalculatorTest extends BaseTest {
     }
 
     @Test
+    @Stories("Mult values story")
+    @Features("Calculator functions")
     public void multiply_test() {
         calc.click(Keys.TWO);
         calc.click(Keys.MULTIPLY);
@@ -58,6 +62,8 @@ public class NewCalculatorTest extends BaseTest {
     }
 
     @Test
+    @Stories("Calculate general story")
+    @Features("Calculator functions")
     public void divide_test() {
         Assert.assertEquals("100", cal.calculate("11111-1111"));
     }
