@@ -20,7 +20,7 @@ public class BaseTest {
     @BeforeClass
     public static void start() throws MalformedURLException {
         WebDriverManager.chromedriver().setup();
-        ChromeOptions opt = new ChromeOptions().setHeadless(false);
+        ChromeOptions opt = new ChromeOptions().setHeadless(true);
         driver = new ChromeDriver(opt);
     }
 
